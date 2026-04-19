@@ -22,12 +22,19 @@ describe('标准path', () => {
     expect(path.basename('foo/bar.txt', '.txt')).eq('bar');
   });
   it('resolve', () => {
-    expect(path.resolve(process.cwd(), 'abc')).eq(path.join(process.cwd(), 'abc'));
-    expect(path.resolve(process.cwd(), './abc')).eq(path.join(process.cwd(), 'abc'));
-    expect(path.resolve(process.cwd(), 'D:\\test')).eq('D:/test');
+    expect(path.resolve(process.cwd(), 'abc')).eq(
+      path.join(process.cwd(), 'abc'),
+    );
+    expect(path.resolve(process.cwd(), './abc')).eq(
+      path.join(process.cwd(), 'abc'),
+    );
+    if (process.platform === 'win32') {
+      expect(path.resolve(process.cwd(), 'D:\\test')).eq('D:/test');
+    }
   });
   it('relative', () => {
-    expect(path.relative(process.cwd(), path.join(process.cwd(), 'abc'))).eq('abc');
+    expect(path.relative(process.cwd(), path.join(process.cwd(), 'abc'))).eq(
+      'abc',
+    );
   });
- 
 });
