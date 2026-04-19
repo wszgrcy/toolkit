@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { copy } from 'esbuild-plugin-copy';
 import { sync } from 'fast-glob';
-import { version } from '../package.json';
+import { version, repository } from '../package.json';
 // 发布之前构建
 async function main() {
   let options: esbuild.BuildOptions = {
@@ -58,7 +58,7 @@ async function main() {
       fs.copyFileSync(pkgJsonPath, distPkgPath);
       const distPkgJson = JSON.parse(fs.readFileSync(distPkgPath, 'utf-8'));
       distPkgJson.version = version;
-
+      distPkgJson.repository = repository;
       for (const depType of ['dependencies', 'peerDependencies']) {
         if (distPkgJson[depType]) {
           for (const subPkgName of subPackageNames) {
