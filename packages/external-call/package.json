@@ -1,0 +1,27 @@
+{
+  "name": "@cyia/external-call",
+  "version": "0.0.0",
+  "description": "外部调用",
+  "author": "wszgrcy",
+  "sideEffects": false,
+  "type": "module",
+  "peerDependencies": {
+    "execa": "^9.5.3",
+    "static-injector": "^6.1.2",
+    "semver": "^7.7.2",
+    "valibot": "^1.1.0"
+  },
+  "dependencies": {
+    "@cyia/util": "workspace:*",
+    "@cyia/vfs2": "workspace:*",
+    "@cyia/zip": "workspace:*",
+    "@cyia/download": "workspace:*",
+    "es-toolkit": "^1.45.1"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@cyia/download",
+  "version": "0.0.0",
+  "description": "Download utility for cyia-external-call",
+  "author": "wszgrcy",
+  "sideEffects": false,
+  "type": "module",
+  "peerDependencies": {},
+  "dependencies": {
+    "@cyia/util": "workspace:*",
+    "ipull": "3.9.3",
+    "rxjs": "^7.8.2"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs"
+    }
+  }
+}

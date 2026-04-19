@@ -1,0 +1,24 @@
+{
+  "name": "@cyia/util",
+  "version": "0.0.0",
+  "description": "工具",
+  "author": "wszgrcy",
+  "sideEffects": false,
+  "type": "module",
+  "dependencies": {
+    "rfdc": "^1.4.1",
+    "dayjs": "^1.11.20",
+    "es-toolkit": "^1.45.1",
+    "yaml": "^2.8.3",
+    "jsonc-parser": "^3.3.1",
+    "marked": "^18.0.2",
+    "magic-string": "^0.30.21"
+  },
+  "overrides": {},
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs"
+    }
+  }
+}

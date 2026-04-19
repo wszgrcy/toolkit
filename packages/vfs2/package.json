@@ -1,0 +1,20 @@
+{
+  "name": "@cyia/vfs2",
+  "version": "1.0.0",
+  "description": "虚拟文件系统",
+  "type": "module",
+  "author": "wszgrcy",
+  "sideEffects": false,
+  "dependencies": {
+    "is-relative": "^1.0.0",
+    "normalize-path": "^3.0.0",
+    "rxjs": "^7.8.2",
+    "@types/node": "^22.0.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs"
+    }
+  }
+}

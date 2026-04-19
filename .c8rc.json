@@ -1,0 +1,19 @@
+{
+  "include": [
+    "packages/**/*.ts"
+  ],
+  "extension": [
+    ".ts"
+  ],
+  "reporter": [
+    "html",
+    "text"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "script",
+    "**/fixture"
+  ],
+  "exclude-after-remap": true,
+  "all": true
+}
