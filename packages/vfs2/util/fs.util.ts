@@ -1,7 +1,6 @@
 import type { FSLayerType, FSType } from '../type';
 import { dirname } from 'path';
 import type { SetRequired, SetNonNullable } from 'type-fest';
-import fg, { FileSystemAdapter } from 'fast-glob';
 import { PathVfsLayerOptions } from '../layer/path.layer';
 import { resolvePath } from './resolve-path';
 import { PathLike } from 'fs';
@@ -19,7 +18,7 @@ export class FsUtil {
   }
 
   writeFile = async (...args: Parameters<FSType['writeFile']>) => {
-    let dir = dirname(args[0] as any);
+    const dir = dirname(args[0] as any);
     await this.#fsLayer.mkdir!(dir, { recursive: true });
     return this.#fsLayer.writeFile!(...args);
   };
@@ -28,35 +27,34 @@ export class FsUtil {
   /** 读取文件内容(字符串) */
   readFileContent = (
     path: string,
-    options: SetNonNullable<SetRequired<Extract<Parameters<FSType['readFile']>[1], Record<string, any>>, 'encoding'>, 'encoding'> = {
+    options: SetNonNullable<
+      SetRequired<
+        Extract<Parameters<FSType['readFile']>[1], Record<string, any>>,
+        'encoding'
+      >,
+      'encoding'
+    > = {
       encoding: 'utf-8',
-    }
-  ) => {
-    return this.#fsLayer.readFile!(path, options).catch(() => undefined);
-  };
+    },
+  ) => this.#fsLayer.readFile!(path, options).catch(() => undefined);
   rename = async (oldPath: PathLike, newPath: string) => {
-    let targetDir = path.dirname(newPath);
+    const targetDir = path.dirname(newPath);
     if (!(await this.exists(targetDir))) {
       await this.#fsLayer.mkdir!(targetDir, { recursive: true });
     }
     return this.#fsLayer.rename!(oldPath, newPath);
   };
   readContent = this.readFileContent;
-  exists = async (path: string) => {
-    return this.#fsLayer.access!(path)
+  exists = async (path: string) =>
+    this.#fsLayer.access!(path)
       .then(() => true)
       .catch(() => false);
-  };
-  isDirectory = async (...args: Parameters<FSType['stat']>) => {
-    return this.#fsLayer.stat!(...args)
-      .then((stat) => {
-        return stat.isDirectory();
-      })
+  isDirectory = async (...args: Parameters<FSType['stat']>) =>
+    this.#fsLayer.stat!(...args)
+      .then((stat) => stat.isDirectory())
       .catch(() => false);
-  };
-  list = async (path: string, options?: Parameters<FSType['readdir']>[1]) => {
-    return this.#fsLayer.readdir!(path, options as any).catch(() => [] as string[]);
-  };
+  list = async (path: string, options?: Parameters<FSType['readdir']>[1]) =>
+    this.#fsLayer.readdir!(path, options as any).catch(() => [] as string[]);
 
   glob = (
     pattern: Parameters<FSType['glob']>[0],
@@ -64,10 +62,14 @@ export class FsUtil {
       cwd: string;
       exclude?: string[];
       withFileTypes?: Parameters<FSType['glob']>[1]['withFileTypes'];
-    }
-  ) => {
-    return this.#fsLayer.glob!(pattern, { ...options, cwd: options?.cwd ? resolvePath(options.cwd, this.#options?.dir) : undefined });
-  };
+    },
+  ) =>
+    this.#fsLayer.glob!(pattern, {
+      ...options,
+      cwd: options?.cwd
+        ? resolvePath(options.cwd, this.#options?.dir)
+        : undefined,
+    });
   move = async (...args: [string | URL, string]) => {
     try {
       return await this.rename!(...args);

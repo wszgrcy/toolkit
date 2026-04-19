@@ -1,6 +1,4 @@
 import http from 'http';
-import fs from 'fs';
-import path from 'path';
 
 const PORT = 18932;
 
@@ -10,7 +8,8 @@ const files: Record<string, { content: string; contentType: string }> = {
     contentType: 'text/plain; charset=utf-8',
   },
   '/assets/img/logo.svg': {
-    content: '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="50" cy="50" r="40" fill="red"/></svg>',
+    content:
+      '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="50" cy="50" r="40" fill="red"/></svg>',
     contentType: 'image/svg+xml',
   },
   '/b': {
@@ -22,7 +21,8 @@ const files: Record<string, { content: string; contentType: string }> = {
     contentType: 'text/plain; charset=utf-8',
   },
   '/README.md': {
-    content: '# Test README\n\nThis is a test README file for download testing.\n',
+    content:
+      '# Test README\n\nThis is a test README file for download testing.\n',
     contentType: 'text/markdown; charset=utf-8',
   },
   '/ggml-vulkan.zip.001': {
@@ -93,5 +93,3 @@ export function stopServer(): Promise<void> {
     server.on('error', reject);
   });
 }
-
-

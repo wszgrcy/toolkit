@@ -8,9 +8,9 @@ import { BaseVfsLayer } from './layer/base-vfs-layer';
 export type NormalizeFs = Required<FSLayerType & FsUtil>;
 export { FsUtil as __FsUtil };
 export function createNormalizeVfs(options?: PathVfsLayerOptions): NormalizeFs {
-  let layer = createVfs([new PathVfsLayer(options), fs.promises as any]);
-  let util = new FsUtil(layer, options);
-  let obj = Object.create(layer) as Record<string, any>;
+  const layer = createVfs([new PathVfsLayer(options), fs.promises as any]);
+  const util = new FsUtil(layer, options);
+  const obj = Object.create(layer) as Record<string, any>;
 
   for (const key in util) {
     const method = (util as any)[key];
@@ -18,10 +18,13 @@ export function createNormalizeVfs(options?: PathVfsLayerOptions): NormalizeFs {
   }
   return obj as any;
 }
-export function createCustomVfs(layerList: BaseVfsLayer[], options?: PathVfsLayerOptions): NormalizeFs {
-  let layer = createVfs([new PathVfsLayer(options), ...layerList]);
-  let util = new FsUtil(layer, options);
-  let obj = Object.create(layer) as Record<string, any>;
+export function createCustomVfs(
+  layerList: BaseVfsLayer[],
+  options?: PathVfsLayerOptions,
+): NormalizeFs {
+  const layer = createVfs([new PathVfsLayer(options), ...layerList]);
+  const util = new FsUtil(layer, options);
+  const obj = Object.create(layer) as Record<string, any>;
 
   for (const key in util) {
     const method = (util as any)[key];

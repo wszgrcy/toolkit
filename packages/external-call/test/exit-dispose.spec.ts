@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { externalExeStop, externalExeExit } from '../exit-dispose';
+import { externalExeStop } from '../exit-dispose';
 import { ResultPromise } from 'execa';
 
 describe('exit-dispose', () => {

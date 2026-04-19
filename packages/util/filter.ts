@@ -41,12 +41,12 @@ export function deepFilterObjectEmptyKey<T>(
     const tempObj = {} as Record<string, any>;
     for (const key in obj) {
       const item = obj[key];
-        const result = itemFn(item);
+      const result = itemFn(item);
 
-        if (isNonNullable(result)) {
-          tempObj[key] = result;
-        }
+      if (isNonNullable(result)) {
+        tempObj[key] = result;
       }
+    }
     return tempObj as any;
   }
 }

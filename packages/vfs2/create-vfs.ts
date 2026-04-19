@@ -11,10 +11,10 @@ export function createVfs(layerList: BaseVfsLayer[]): FSLayerType {
     return layerList[0];
   }
   let lastLayer;
-  let fsKeys = [];
-  let insertLayerList: FSLayerType[] = [];
+  const fsKeys = [];
+  const insertLayerList: FSLayerType[] = [];
   for (let i = layerList.length - 1; i > -1; i--) {
-    let item = layerList[i];
+    const item = layerList[i];
     if (!lastLayer) {
       lastLayer = item.parent ?? item;
       for (const key in item) {
@@ -27,10 +27,12 @@ export function createVfs(layerList: BaseVfsLayer[]): FSLayerType {
       item.layerList = insertLayerList.slice();
       item.parent = lastLayer;
       fsKeys.forEach((fsKey) => {
-        if (!(fsKey in item) && typeof (item.parent as any)[fsKey] === 'function') {
-          (item as any)[fsKey] = (...args: any[]) => {
-            return (item.parent as any)[fsKey](...args);
-          };
+        if (
+          !(fsKey in item) &&
+          typeof (item.parent as any)[fsKey] === 'function'
+        ) {
+          (item as any)[fsKey] = (...args: any[]) =>
+            (item.parent as any)[fsKey](...args);
         }
       });
       lastLayer = item;

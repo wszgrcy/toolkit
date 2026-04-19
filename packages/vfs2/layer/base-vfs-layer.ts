@@ -1,4 +1,4 @@
-import type { FSLayerType, FSType } from '../type';
+import type { FSLayerType } from '../type';
 
 export class BaseVfsLayer implements FSLayerType {
   parent?: FSLayerType;

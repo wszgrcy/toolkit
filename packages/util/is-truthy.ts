@@ -1,3 +1,5 @@
-export function isTruthy<T>(value: T | null | undefined | false | 0 | ''): value is T {
+export function isTruthy<T>(
+  value: T | null | undefined | false | 0 | '',
+): value is T {
   return !!value;
 }

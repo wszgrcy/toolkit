@@ -1,14 +1,13 @@
 import { join } from 'path';
 import { expect } from 'chai';
-import { createNormalizeVfs, NormalizeFs } from '..';
 import { path } from '..';
 import normalizePath from 'normalize-path';
 describe('标准path', () => {
   // beforeEach(() => {});
   // afterEach(async () => {});
   it('join', async () => {
-    let cwd = process.cwd();
-    let fp = path.join(cwd, 'abc');
+    const cwd = process.cwd();
+    const fp = path.join(cwd, 'abc');
 
     expect(fp).eq(normalizePath(join(cwd, 'abc')));
   });

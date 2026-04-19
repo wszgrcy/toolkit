@@ -47,7 +47,8 @@ export default [
       '@typescript-eslint/no-require-imports': 'off',
       '@typescript-eslint/no-unused-expressions': 'off',
       'eqeqeq': "warn",
-      'no-useless-computed-key': 'warn'
+      'no-useless-computed-key': 'warn',
+      '@typescript-eslint/no-empty-object-type':'warn'
     },
   },
 ];
