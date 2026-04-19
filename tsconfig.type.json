@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.build.json",
   "compilerOptions": {
-    "rootDir": "",
+    "rootDir": "./packages",
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "./dist",

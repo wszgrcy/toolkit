@@ -2,7 +2,7 @@ import { inject, Injector, signal, Signal } from 'static-injector';
 import { path } from '@cyia/vfs2';
 import fs from 'fs';
 import semver from 'semver';
-import { downloadFile, MessageType } from '@cyia/download';
+import { downloadFile, MessageType } from '@cyia/dl';
 import { UnzipService } from '@cyia/zip';
 import { SignalConstants, tmpdir } from 'os';
 import { execa, ResultPromise } from 'execa';

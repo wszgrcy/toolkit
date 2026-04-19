@@ -15,7 +15,7 @@
     "@cyia/util": "workspace:*",
     "@cyia/vfs2": "workspace:*",
     "@cyia/zip": "workspace:*",
-    "@cyia/download": "workspace:*",
+    "@cyia/dl": "workspace:*",
     "es-toolkit": "^1.45.1"
   },
   "exports": {

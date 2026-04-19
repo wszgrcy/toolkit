@@ -142,7 +142,7 @@ importers:
         specifier: ^13.0.0
         version: 13.0.0
 
-  packages/download:
+  packages/dl:
     dependencies:
       '@cyia/util':
         specifier: workspace:*
@@ -156,9 +156,9 @@ importers:
 
   packages/external-call:
     dependencies:
-      '@cyia/download':
+      '@cyia/dl':
         specifier: workspace:*
-        version: link:../download
+        version: link:../dl
       '@cyia/util':
         specifier: workspace:*
         version: link:../util
