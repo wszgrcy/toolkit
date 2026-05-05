@@ -65,6 +65,9 @@ importers:
       yaml:
         specifier: ^2.8.3
         version: 2.8.3
+      yauzl:
+        specifier: ^3.3.0
+        version: 3.3.0
       yazl:
         specifier: ^3.3.1
         version: 3.3.1
@@ -141,6 +144,30 @@ importers:
       uuid:
         specifier: ^13.0.0
         version: 13.0.0
+
+  packages/bundle-file:
+    dependencies:
+      '@cyia/vfs2':
+        specifier: workspace:*
+        version: link:../vfs2
+      '@types/yauzl':
+        specifier: ^2.10.3
+        version: 2.10.3
+      '@types/yazl':
+        specifier: ^3.3.0
+        version: 3.3.1
+      static-injector:
+        specifier: ^6.3.1
+        version: 6.3.1(rxjs@7.8.2)
+      uuid:
+        specifier: ^13.0.0
+        version: 13.0.0
+      yauzl:
+        specifier: ^3.3.0
+        version: 3.3.0
+      yazl:
+        specifier: ^3.3.1
+        version: 3.3.1
 
   packages/dl:
     dependencies:
@@ -1828,6 +1855,10 @@ packages:
   yauzl@2.10.0:
     resolution: {integrity: sha512-p4a9I6X6nu6IhoGmBqAcbJy1mlC4j27vEPZX9F4L4/vZT3Lyq1VkFHw/V/PUcB9Buo+DG3iHkT0x3Qya58zc3g==}
 
+  yauzl@3.3.0:
+    resolution: {integrity: sha512-PtGEvEP30p7sbIBJKUBjUnqgTVOyMURc4dLo9iNyAJnNIEz9pm88cCXF21w94Kg3k6RXkeZh5DHOGS0qEONvNQ==}
+    engines: {node: '>=12'}
+
   yazl@3.3.1:
     resolution: {integrity: sha512-BbETDVWG+VcMUle37k5Fqp//7SDOK2/1+T7X8TD96M3D9G8jK5VLUdQVdVjGi8im7FGkazX7kk5hkU8X4L5Bng==}
 
@@ -2169,7 +2200,6 @@ snapshots:
   '@types/yauzl@2.10.3':
     dependencies:
       '@types/node': 22.19.17
-    optional: true
 
   '@types/yazl@3.3.1':
     dependencies:
@@ -3282,6 +3312,11 @@ snapshots:
     dependencies:
       buffer-crc32: 0.2.13
       fd-slicer: 1.1.0
+
+  yauzl@3.3.0:
+    dependencies:
+      buffer-crc32: 0.2.13
+      pend: 1.2.0
 
   yazl@3.3.1:
     dependencies:

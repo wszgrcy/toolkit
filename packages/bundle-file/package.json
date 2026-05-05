@@ -1,0 +1,25 @@
+{
+  "name": "@cyia/bundle-file",
+  "version": "0.0.0",
+  "description": "打包文件",
+  "author": "wszgrcy",
+  "sideEffects": false,
+  "type": "module",
+  "peerDependencies": {
+    "@types/yauzl": "^2.10.3",
+    "@types/yazl": "^3.3.0",
+    "uuid": "^13.0.0"
+  },
+  "dependencies": {
+    "@cyia/vfs2": "workspace:*",
+    "static-injector": "^6.3.1",
+    "yauzl": "^3.3.0",
+    "yazl": "^3.3.1"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs"
+    }
+  }
+}

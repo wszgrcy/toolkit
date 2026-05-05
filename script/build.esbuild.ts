@@ -1,7 +1,6 @@
 import * as esbuild from 'esbuild';
 import * as path from 'path';
 import * as fs from 'fs';
-import { copy } from 'esbuild-plugin-copy';
 import { sync } from 'fast-glob';
 import { version, repository } from '../package.json';
 // 发布之前构建
