@@ -21,5 +21,8 @@
       "types": "./index.d.ts",
       "import": "./index.mjs"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
