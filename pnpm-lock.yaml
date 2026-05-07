@@ -54,7 +54,7 @@ importers:
         specifier: ^7.7.4
         version: 7.7.4
       static-injector:
-        specifier: ^6.1.2
+        specifier: '>=6.1.2'
         version: 6.3.1(rxjs@7.8.2)
       tar:
         specifier: ^7.5.13
@@ -150,14 +150,8 @@ importers:
       '@cyia/vfs2':
         specifier: workspace:*
         version: link:../vfs2
-      '@types/yauzl':
-        specifier: ^2.10.3
-        version: 2.10.3
-      '@types/yazl':
-        specifier: ^3.3.0
-        version: 3.3.1
       static-injector:
-        specifier: ^6.3.1
+        specifier: '>=6.1.2'
         version: 6.3.1(rxjs@7.8.2)
       uuid:
         specifier: ^13.0.0
@@ -167,6 +161,13 @@ importers:
         version: 3.3.0
       yazl:
         specifier: ^3.3.1
+        version: 3.3.1
+    devDependencies:
+      '@types/yauzl':
+        specifier: ^2.10.3
+        version: 2.10.3
+      '@types/yazl':
+        specifier: ^3.3.0
         version: 3.3.1
 
   packages/dl:
@@ -205,7 +206,7 @@ importers:
         specifier: ^7.7.2
         version: 7.7.4
       static-injector:
-        specifier: ^6.1.2
+        specifier: '>=6.1.2'
         version: 6.3.1(rxjs@7.8.2)
       valibot:
         specifier: ^1.1.0
@@ -268,7 +269,7 @@ importers:
         specifier: 22.0.1
         version: 22.0.1
       static-injector:
-        specifier: ^6.1.2
+        specifier: '>=6.1.2'
         version: 6.3.1(rxjs@7.8.2)
       tar:
         specifier: ^7.5.13

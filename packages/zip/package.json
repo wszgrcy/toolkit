@@ -6,8 +6,7 @@
   "sideEffects": false,
   "type": "module",
   "peerDependencies": {
-    "execa": "^9.5.3",
-    "static-injector": "^6.1.2"
+    "static-injector": ">=6.1.2"
   },
   "dependencies": {
     "@cyia/vfs2": "workspace:*",
@@ -15,7 +14,8 @@
     "fastq": "^1.20.1",
     "tar": "^7.5.13",
     "yazl": "^3.3.1",
-    "file-type":"22.0.1"
+    "file-type": "22.0.1",
+    "execa": "^9.5.3"
   },
   "exports": {
     ".": {

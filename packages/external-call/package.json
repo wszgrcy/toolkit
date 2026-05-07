@@ -6,9 +6,7 @@
   "sideEffects": false,
   "type": "module",
   "peerDependencies": {
-    "execa": "^9.5.3",
-    "static-injector": "^6.1.2",
-    "semver": "^7.7.2",
+    "static-injector": ">=6.1.2",
     "valibot": "^1.1.0"
   },
   "dependencies": {
@@ -16,7 +14,9 @@
     "@cyia/vfs2": "workspace:*",
     "@cyia/zip": "workspace:*",
     "@cyia/dl": "workspace:*",
-    "es-toolkit": "^1.45.1"
+    "es-toolkit": "^1.45.1",
+    "execa": "^9.5.3",
+    "semver": "^7.7.2"
   },
   "exports": {
     ".": {

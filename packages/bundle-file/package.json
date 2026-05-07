@@ -5,16 +5,16 @@
   "author": "wszgrcy",
   "sideEffects": false,
   "type": "module",
-  "peerDependencies": {
+  "devDependencies": {
     "@types/yauzl": "^2.10.3",
-    "@types/yazl": "^3.3.0",
-    "uuid": "^13.0.0"
+    "@types/yazl": "^3.3.0"
   },
   "dependencies": {
     "@cyia/vfs2": "workspace:*",
-    "static-injector": "^6.3.1",
+    "static-injector": ">=6.1.2",
     "yauzl": "^3.3.0",
-    "yazl": "^3.3.1"
+    "yazl": "^3.3.1",
+    "uuid": "^13.0.0"
   },
   "exports": {
     ".": {
