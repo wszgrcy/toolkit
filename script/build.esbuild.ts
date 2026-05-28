@@ -39,6 +39,9 @@ async function main() {
     ],
   };
   await esbuild.build(options);
+  delete options.outExtension;
+  options.format = 'cjs';
+  await esbuild.build(options);
   const packages = sync('*', {
     onlyDirectories: true,
     cwd: path.join(process.cwd(), 'packages'),
