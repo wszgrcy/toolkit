@@ -110,7 +110,7 @@ describe('download', () => {
     });
     setTimeout(() => {
       ab.abort();
-    }, 500);
+    }, 0);
     const end = await end$$;
     expect(end).eq(1);
   });
