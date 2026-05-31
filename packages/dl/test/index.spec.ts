@@ -72,7 +72,7 @@ describe('download', () => {
             statusCount = 1;
           }
         } else if (item.type === 'loading') {
-          if ((item.data as ProgressItem).speed) {
+          if (item.data.speed) {
             messageCount = 1;
           }
           expect(item.data.fileName).eq('b');
