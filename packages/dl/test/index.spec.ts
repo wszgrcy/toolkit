@@ -65,17 +65,16 @@ describe('download', () => {
       savePath: output,
       progressSampleTime: 0,
       message(item) {
-        console.log('xxx',item)
+        console.log('xxx', item);
         if (item.type === 'status') {
           if (item.data === 0) {
             expect(item.data).eq(0);
             statusCount = 1;
           }
         } else if (item.type === 'loading') {
-          if (messageCount) {
-            // expect((item.data as ProgressItem).speed).greaterThan(0);
+          if ((item.data as ProgressItem).speed) {
+            messageCount = 1;
           }
-          messageCount = 1;
           expect(item.data.fileName).eq('b');
         }
       },
