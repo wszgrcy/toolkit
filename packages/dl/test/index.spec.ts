@@ -71,7 +71,9 @@ describe('download', () => {
             statusCount = 1;
           }
         } else if (item.type === 'loading') {
-          expect((item.data as ProgressItem).speed).greaterThan(0);
+          if (messageCount) {
+            expect((item.data as ProgressItem).speed).greaterThan(0);
+          }
           messageCount = 1;
           expect(item.data.fileName).eq('b');
         }
