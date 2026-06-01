@@ -1,4 +1,4 @@
-import * as fs from 'fs/promises';
+import * as fsPromise from 'fs/promises';
 
 import { path } from '@cyia/vfs2';
 import { computed, signal } from 'static-injector';
@@ -23,33 +23,33 @@ export class TempDirFlowFile {
     this.#path = path.join(dir, documentName);
   }
   async hasBackup() {
-    return await fs
+    return await fsPromise
       .stat(this.#path)
       .then(() => true)
       .catch(() => false);
   }
   readBufferContent() {
-    return fs.readFile(this.#path).then((buffer) => new Uint8Array(buffer));
+    return fsPromise.readFile(this.#path).then((buffer) => new Uint8Array(buffer));
   }
   writeFile(buffer: Uint8Array) {
-    return fs.writeFile(this.#path, buffer);
+    return fsPromise.writeFile(this.#path, buffer);
   }
   async getImageList() {
-    return await fs.readdir(this.imageList$$()).catch(() => [] as string[]);
+    return await fsPromise.readdir(this.imageList$$()).catch(() => [] as string[]);
   }
   readImage(name: string) {
-    return fs
+    return fsPromise
       .readFile(path.join(this.imageList$$(), name))
       .then((buffer) => new Uint8Array(buffer));
   }
 
   async writeImage(fileName: string, buffer: Uint8Array) {
-    await fs.mkdir(this.imageList$$(), { recursive: true });
-    return fs.writeFile(path.join(this.dir, imgDirName, fileName), buffer);
+    await fsPromise.mkdir(this.imageList$$(), { recursive: true });
+    return fsPromise.writeFile(path.join(this.dir, imgDirName, fileName), buffer);
   }
   async clear() {
-    await fs.rm(this.#path, { force: true });
-    await fs.rm(this.imageList$$(), { recursive: true, force: true });
+    await fsPromise.rm(this.#path, { force: true });
+    await fsPromise.rm(this.imageList$$(), { recursive: true, force: true });
   }
 }
 /** 普通文件 */
